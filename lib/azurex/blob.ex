@@ -117,7 +117,7 @@ defmodule Azurex.Blob do
       ],
       # Blob storage only answers when the whole file has been uploaded, so recv_timeout
       # is not applicable for the put request, so we set it to infinity
-      options: [recv_timeout: :infinity]
+      options: [recv_timeout: :infinity, timeout: 15_000]
     }
     |> SharedKey.sign(
       storage_account_name: Config.storage_account_name(connection_params),

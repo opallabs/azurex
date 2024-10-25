@@ -30,6 +30,10 @@ defmodule Azurex.Blob.Block do
       url: Blob.get_url(name, connection_params),
       params: params,
       body: chunk,
+      options: [
+        timeout: 15_000,
+        recv_timeout: 10_000
+      ],
       headers: [
         {"content-type", content_type},
         {"content-length", byte_size(chunk)}
